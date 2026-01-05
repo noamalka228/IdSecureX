@@ -38,7 +38,7 @@ export default function Home() {
       {/* Navigation */}
       <nav className={`${styles.nav} ${isScrolled ? styles.scrolled : ''}`}>
         <div className={styles.navContainer}>
-          <div className={styles.logo}>ID<span style={{ color: '#fff' }}>SECURE</span>X</div>
+          <div className={styles.logo}>ID-<span style={{ color: '#fff' }}>SECURE</span>X</div>
 
           <div className={styles.navLinks}>
             <button onClick={() => scrollTo('home')}>בית</button>
@@ -235,7 +235,7 @@ export default function Home() {
           </div>
 
           <div className={styles.copy}>
-            © {new Date().getFullYear()} IdSecureX. כל הזכויות שמורות.
+            © {new Date().getFullYear()} Id-SecureX. כל הזכויות שמורות.
           </div>
         </div>
       </footer>

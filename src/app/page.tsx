@@ -118,7 +118,7 @@ export default function Home() {
         />
         <div className={styles.heroContent}>
           <div style={{
-            transform: `scale(${Math.max(1, 1.5 - (scrollYValues.scrollY * 0.002))}) translateY(${Math.max(0, 100 - (scrollYValues.scrollY * 0.5))}px)`,
+            transform: `scale(${Math.max(1, 1.5 - (scrollYValues.scrollY * 0.005))}) translateY(${Math.max(0, 100 - (scrollYValues.scrollY * 1))}px)`,
             willChange: 'transform',
             display: 'inline-block',
             marginBottom: '2rem'

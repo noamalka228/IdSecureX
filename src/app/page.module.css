@@ -29,6 +29,12 @@
   padding: 0 20px;
 }
 
+.logoGroup {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
 .logo {
   font-size: 1.5rem;
   font-weight: 700;
@@ -53,6 +59,83 @@
 .navLinks button:hover {
   opacity: 1;
   color: var(--primary);
+}
+
+.mobileMenuBtn {
+  display: none;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Mobile Side Menu */
+.mobileMenuOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 199;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.mobileMenuOverlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mobileMenu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 280px;
+  height: 100vh;
+  background: #000;
+  z-index: 200;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+  border-left: 1px solid var(--border);
+  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.mobileMenu.open {
+  transform: translateX(0);
+}
+
+.closeBtn {
+  align-self: flex-end;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  margin-bottom: 40px;
+  padding: 5px;
+}
+
+.mobileMenuLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.mobileMenuLinks button {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #fff;
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: right;
+  padding: 10px 0;
+  border-bottom: 1px solid #222;
 }
 
 /* Hero Section */
@@ -285,6 +368,14 @@
 
 /* Responsive */
 @media (max-width: 768px) {
+  .navLinks {
+    display: none;
+  }
+
+  .mobileMenuBtn {
+    display: block;
+  }
+
   .heroTitle {
     font-size: 2rem;
     line-height: 1.2;
@@ -304,10 +395,6 @@
     width: 60vw !important;
     /* Responsive width on mobile for better scaling effect */
     height: auto !important;
-  }
-
-  .navLinks {
-    display: none;
   }
 
   .showcase {

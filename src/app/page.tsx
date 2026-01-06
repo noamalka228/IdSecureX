@@ -79,10 +79,10 @@ export default function Home() {
             marginBottom: '2rem'
           }}>
             <Image
-              src="/images/dark-logo.jpeg"
+              src="/images/logo.png"
               alt="IdSecureX Logo"
-              width={250}
-              height={250}
+              width={350}
+              height={350}
               style={{ objectFit: 'contain' }}
               priority
             />

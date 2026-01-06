@@ -18,11 +18,13 @@ import styles from "./page.module.css";
 
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [scrollYValues, setScrollYValues] = useState({ scrollY: 0 });
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
+      setScrollYValues({ scrollY: window.scrollY });
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -70,26 +72,39 @@ export default function Home() {
           quality={100}
         />
         <div className={styles.heroContent}>
-          <Image
-            src="/images/logo.jpg"
-            alt="IdSecureX Logo"
-            width={250}
-            height={250}
-            style={{ objectFit: 'contain', marginBottom: '2rem' }}
-            priority
-          />
-          <h2 className={styles.heroSubtitle}>בטיחות היא היוקרה החדשה</h2>
-          <h1 className={styles.heroTitle}>פתרונות אבטחה<br />בסטנדרט הגבוה ביותר</h1>
-          <p className={styles.heroDesc}>
-            אנו מספקים מערכות אבטחה מתקדמות, מצלמות חכמות ופתרונות בית חכם המותאמים אישית לצרכים שלך. שקט נפשי מלא, בעיצוב יוקרתי.
-          </p>
-          <div className={styles.ctaGroup}>
-            <button className={styles.btnPrimary} onClick={() => scrollTo('contact')}>
-              קבל הצעה
-            </button>
-            <button className={styles.btnSecondary} onClick={() => scrollTo('services')}>
-              למד עוד
-            </button>
+          <div style={{
+            transform: `scale(${Math.max(1, 1.5 - (scrollYValues.scrollY * 0.002))}) translateY(${Math.max(0, 100 - (scrollYValues.scrollY * 0.5))}px)`,
+            transition: 'transform 0.1s ease-out',
+            display: 'inline-block',
+            marginBottom: '2rem'
+          }}>
+            <Image
+              src="/images/dark-logo.jpeg"
+              alt="IdSecureX Logo"
+              width={250}
+              height={250}
+              style={{ objectFit: 'contain' }}
+              priority
+            />
+          </div>
+          <div style={{
+            opacity: Math.min(1, Math.max(0, (scrollYValues.scrollY - 100) / 200)),
+            transform: `translateY(${Math.max(0, 50 - (scrollYValues.scrollY - 100) / 4)}px)`,
+            transition: 'opacity 0.3s ease-out, transform 0.3s ease-out'
+          }}>
+            <h2 className={styles.heroSubtitle}>בטיחות היא היוקרה החדשה</h2>
+            <h1 className={styles.heroTitle}>פתרונות אבטחה<br />בסטנדרט הגבוה ביותר</h1>
+            <p className={styles.heroDesc}>
+              אנו מספקים מערכות אבטחה מתקדמות, מצלמות חכמות ופתרונות בית חכם המותאמים אישית לצרכים שלך. שקט נפשי מלא, בעיצוב יוקרתי.
+            </p>
+            <div className={styles.ctaGroup}>
+              <button className={styles.btnPrimary} onClick={() => scrollTo('contact')}>
+                קבל הצעה
+              </button>
+              <button className={styles.btnSecondary} onClick={() => scrollTo('services')}>
+                למד עוד
+              </button>
+            </div>
           </div>
         </div>
       </section>

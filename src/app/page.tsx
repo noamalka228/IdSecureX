@@ -22,11 +22,18 @@ export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-      setScrollYValues({ scrollY: window.scrollY });
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setIsScrolled(window.scrollY > 50);
+          setScrollYValues({ scrollY: window.scrollY });
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -74,7 +81,7 @@ export default function Home() {
         <div className={styles.heroContent}>
           <div style={{
             transform: `scale(${Math.max(1, 1.5 - (scrollYValues.scrollY * 0.002))}) translateY(${Math.max(0, 100 - (scrollYValues.scrollY * 0.5))}px)`,
-            transition: 'transform 0.1s ease-out',
+            willChange: 'transform',
             display: 'inline-block',
             marginBottom: '2rem'
           }}>
@@ -83,14 +90,15 @@ export default function Home() {
               alt="IdSecureX Logo"
               width={350}
               height={350}
+              className={styles.heroLogo}
               style={{ objectFit: 'contain' }}
               priority
             />
           </div>
           <div style={{
-            opacity: Math.min(1, Math.max(0, (scrollYValues.scrollY - 100) / 200)),
-            transform: `translateY(${Math.max(0, 50 - (scrollYValues.scrollY - 100) / 4)}px)`,
-            transition: 'opacity 0.3s ease-out, transform 0.3s ease-out'
+            opacity: Math.min(1, Math.max(0, scrollYValues.scrollY / 80)),
+            transform: `translateY(${Math.max(0, 20 - scrollYValues.scrollY / 3)}px)`,
+            transition: 'opacity 0.2s ease-out, transform 0.2s ease-out'
           }}>
             <h2 className={styles.heroSubtitle}>בטיחות היא היוקרה החדשה</h2>
             <h1 className={styles.heroTitle}>פתרונות אבטחה<br />בסטנדרט הגבוה ביותר</h1>

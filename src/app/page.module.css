@@ -109,6 +109,12 @@
   margin: 0 auto 2.5rem;
 }
 
+.heroLogo {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+}
+
 .ctaGroup {
   display: flex;
   gap: 1rem;
@@ -280,7 +286,24 @@
 /* Responsive */
 @media (max-width: 768px) {
   .heroTitle {
-    font-size: 2.5rem;
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+
+  .heroSubtitle {
+    font-size: 0.9rem;
+    letter-spacing: 0.1rem;
+  }
+
+  .heroDesc {
+    font-size: 1rem;
+    padding: 0 10px;
+  }
+
+  .heroLogo {
+    width: 60vw !important;
+    /* Responsive width on mobile for better scaling effect */
+    height: auto !important;
   }
 
   .navLinks {
@@ -294,6 +317,19 @@
 
   .showcaseImageWrapper {
     width: 100%;
-    height: 300px;
+    height: 250px;
+  }
+
+  .section {
+    padding: 60px 20px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contactInfo {
+    flex-direction: column;
+    gap: 30px;
   }
 }

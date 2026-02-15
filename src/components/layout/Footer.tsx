@@ -1,7 +1,8 @@
 "use client";
 
 import { Phone, Mail, MapPin } from "lucide-react";
-import { Box, Container, Typography } from "@mui/material";
+import { Box, Button, Container, Typography } from "@mui/material";
+import { CONTACT_INFO, MESSAGES, SOCIAL_LINKS } from "../../constants";
 
 export default function Footer() {
     return (
@@ -25,7 +26,7 @@ export default function Footer() {
                     color="text.secondary"
                     sx={{ mb: 6, maxWidth: 600, mx: 'auto' }}
                 >
-                    מומחי האבטחה שלנו זמינים לייעוץ. השאר פרטים ונחזור אליך בהקדם.
+                    השאר פרטים ונחזור אליך בהקדם.
                 </Typography>
 
                 <Box
@@ -37,22 +38,46 @@ export default function Footer() {
                         justifyContent: 'center'
                     }}
                 >
-                    <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 1 }}>
+                    <Button
+                        href={`${SOCIAL_LINKS.WHATSAPP}?text=${encodeURIComponent(MESSAGES.WHATSAPP_BODY)}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        sx={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            alignItems: 'center',
+                            gap: 1,
+                            textTransform: 'none',
+                            color: 'inherit'
+                        }}
+                    >
                         <Phone color="#D4AF37" size={24} />
                         <Typography variant="body1" fontWeight={500}>
-                            052-590-6555
+                            {CONTACT_INFO.PHONE}
                         </Typography>
-                    </Box>
-                    <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 1 }}>
+                    </Button>
+
+                    <Button
+                        href={`mailto:${CONTACT_INFO.EMAIL}?subject=${encodeURIComponent(MESSAGES.EMAIL_SUBJECT)}&body=${encodeURIComponent(MESSAGES.EMAIL_BODY)}`}
+                        sx={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            alignItems: 'center',
+                            gap: 1,
+                            textTransform: 'none',
+                            color: 'inherit'
+                        }}
+                    >
                         <Mail color="#D4AF37" size={24} />
                         <Typography variant="body1" fontWeight={500}>
-                            contact@idsecurex.co.il
+                            {CONTACT_INFO.EMAIL}
                         </Typography>
-                    </Box>
-                    <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 1 }}>
+                    </Button>
+
+                    <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 1, p: '6px 8px' }}>
                         <MapPin color="#D4AF37" size={24} />
                         <Typography variant="body1" fontWeight={500}>
-                            מרכז הארץ, ישראל
+                            {CONTACT_INFO.ADDRESS}
                         </Typography>
                     </Box>
                 </Box>

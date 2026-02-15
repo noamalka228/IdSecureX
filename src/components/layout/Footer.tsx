@@ -1,34 +1,67 @@
+"use client";
+
 import { Phone, Mail, MapPin } from "lucide-react";
-import styles from "./Footer.module.css";
+import { Box, Container, Stack, Typography } from "@mui/material";
 
 export default function Footer() {
     return (
-        <footer id="contact" className={styles.footer}>
-            <div className={styles.footerContent}>
-                <h2 className="sectionTitle">צור קשר</h2>
-                <p className="sectionSubtitle" style={{ marginBottom: '40px' }}>
+        <Box
+            component="footer"
+            id="contact"
+            sx={{
+                bgcolor: 'background.paper',
+                py: 10,
+                borderTop: 1,
+                borderColor: 'divider',
+                textAlign: 'center'
+            }}
+        >
+            <Container maxWidth="md">
+                <Typography variant="h4" component="h2" gutterBottom fontWeight="bold">
+                    צור קשר
+                </Typography>
+                <Typography
+                    variant="body1"
+                    color="text.secondary"
+                    sx={{ mb: 6, maxWidth: 600, mx: 'auto' }}
+                >
                     מומחי האבטחה שלנו זמינים לייעוץ. השאר פרטים ונחזור אליך בהקדם.
-                </p>
+                </Typography>
 
-                <div className={styles.contactInfo}>
-                    <div className={styles.contactItem}>
+                <Stack
+                    direction={{ xs: 'column', sm: 'row' }}
+                    spacing={4}
+                    justifyContent="center"
+                    alignItems="center"
+                >
+                    <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 1 }}>
                         <Phone color="#D4AF37" size={24} />
-                        <span className={styles.contactDetails}>052-590-6555</span>
-                    </div>
-                    <div className={styles.contactItem}>
+                        <Typography variant="body1" fontWeight={500}>
+                            052-590-6555
+                        </Typography>
+                    </Box>
+                    <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 1 }}>
                         <Mail color="#D4AF37" size={24} />
-                        <span className={styles.contactDetails}>contact@idsecurex.co.il</span>
-                    </div>
-                    <div className={styles.contactItem}>
+                        <Typography variant="body1" fontWeight={500}>
+                            contact@idsecurex.co.il
+                        </Typography>
+                    </Box>
+                    <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 1 }}>
                         <MapPin color="#D4AF37" size={24} />
-                        <span className={styles.contactDetails}>מרכז הארץ, ישראל</span>
-                    </div>
-                </div>
+                        <Typography variant="body1" fontWeight={500}>
+                            מרכז הארץ, ישראל
+                        </Typography>
+                    </Box>
+                </Stack>
 
-                <div className={styles.copy}>
+                <Typography
+                    variant="body2"
+                    color="text.secondary"
+                    sx={{ mt: 10 }}
+                >
                     © {new Date().getFullYear()} Id-SecureX. כל הזכויות שמורות.
-                </div>
-            </div>
-        </footer>
+                </Typography>
+            </Container>
+        </Box>
     );
 }

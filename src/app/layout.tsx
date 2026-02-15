@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Rubik } from "next/font/google";
 import "./globals.css";
+import ThemeRegistry from "../components/ThemeRegistry/ThemeRegistry";
 
 const rubik = Rubik({
   subsets: ["hebrew", "latin"],
@@ -21,7 +22,9 @@ export default function RootLayout({
   return (
     <html lang="he" dir="rtl">
       <body className={rubik.className}>
-        {children}
+        <ThemeRegistry>
+          {children}
+        </ThemeRegistry>
       </body>
     </html>
   );

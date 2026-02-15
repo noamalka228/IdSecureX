@@ -1,5 +1,7 @@
+"use client";
+
 import { Eye, Shield, Smartphone } from "lucide-react";
-import styles from "./Services.module.css";
+import { Box, Container, Typography, Paper } from "@mui/material";
 
 export default function Services() {
     const services = [
@@ -21,25 +23,63 @@ export default function Services() {
     ];
 
     return (
-        <section id="services" className="section">
-            <div className="container">
-                <div className={styles.sectionHeader}>
-                    <span className={styles.sectionSubtitle}>המומחיות שלנו</span>
-                    <h2 className="sectionTitle">פתרונות אבטחה מקיפים</h2>
-                </div>
+        <Box component="section" id="services" sx={{ py: 10 }}>
+            <Container>
+                <Box sx={{ textAlign: 'center', mb: 8 }}>
+                    <Typography
+                        variant="h6"
+                        component="span"
+                        sx={{
+                            color: 'primary.main',
+                            fontSize: '1.1rem',
+                            display: 'block',
+                            mb: 1
+                        }}
+                    >
+                        המומחיות שלנו
+                    </Typography>
+                    <Typography variant="h3" component="h2" sx={{ fontWeight: 700 }}>
+                        פתרונות אבטחה מקיפים
+                    </Typography>
+                </Box>
 
-                <div className={styles.grid}>
+                <Box
+                    sx={{
+                        display: 'grid',
+                        gridTemplateColumns: { xs: '1fr', md: 'repeat(3, 1fr)' },
+                        gap: 5
+                    }}
+                >
                     {services.map((service, index) => (
-                        <div key={index} className={styles.card}>
-                            <div className={styles.iconBox}>
+                        <Paper
+                            key={index}
+                            elevation={0}
+                            sx={{
+                                bgcolor: 'background.paper',
+                                p: 5,
+                                borderRadius: 2,
+                                transition: 'transform 0.3s ease',
+                                borderBottom: '2px solid transparent',
+                                height: '100%',
+                                '&:hover': {
+                                    transform: 'translateY(-10px)',
+                                    borderBottomColor: 'primary.main',
+                                }
+                            }}
+                        >
+                            <Box sx={{ mb: 3 }}>
                                 {service.icon}
-                            </div>
-                            <h3 className={styles.cardTitle}>{service.title}</h3>
-                            <p className={styles.cardDesc}>{service.desc}</p>
-                        </div>
+                            </Box>
+                            <Typography variant="h5" component="h3" sx={{ mb: 2, fontWeight: 600 }}>
+                                {service.title}
+                            </Typography>
+                            <Typography variant="body1" color="text.secondary">
+                                {service.desc}
+                            </Typography>
+                        </Paper>
                     ))}
-                </div>
-            </div>
-        </section>
+                </Box>
+            </Container>
+        </Box>
     );
 }

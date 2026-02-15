@@ -3,40 +3,30 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
-import styles from "./Navbar.module.css";
+import {
+    AppBar,
+    Toolbar,
+    Container,
+    Button,
+    IconButton,
+    Box,
+    Drawer,
+    List,
+    ListItem,
+    ListItemButton,
+    ListItemText,
+    Typography,
+    useScrollTrigger
+} from "@mui/material";
 
 export default function Navbar() {
-    const [isScrolled, setIsScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-    useEffect(() => {
-        let ticking = false;
-        const handleScroll = () => {
-            if (!ticking) {
-                window.requestAnimationFrame(() => {
-                    setIsScrolled(window.scrollY > 50);
-                    ticking = false;
-                });
-                ticking = true;
-            }
-        };
-        window.addEventListener("scroll", handleScroll, { passive: true });
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
-
-    useEffect(() => {
-        if (mobileMenuOpen) {
-            document.body.style.overflow = 'hidden';
-            document.documentElement.style.overflow = 'hidden';
-        } else {
-            document.body.style.overflow = '';
-            document.documentElement.style.overflow = '';
-        }
-        return () => {
-            document.body.style.overflow = '';
-            document.documentElement.style.overflow = '';
-        };
-    }, [mobileMenuOpen]);
+    // Use MUI scroll trigger for efficient scroll detection
+    const isScrolled = useScrollTrigger({
+        disableHysteresis: true,
+        threshold: 50,
+    });
 
     const scrollTo = (id: string) => {
         setMobileMenuOpen(false);
@@ -46,44 +36,106 @@ export default function Navbar() {
         }
     };
 
+    const navLinks = [
+        { title: 'בית', id: 'home' },
+        { title: 'שירותים', id: 'services' },
+        { title: 'אודות', id: 'about' },
+        { title: 'צור קשר', id: 'contact' },
+    ];
+
     return (
         <>
-            <nav className={`${styles.nav} ${isScrolled ? styles.scrolled : ''}`}>
-                <div className={styles.navContainer}>
-                    <div className={styles.logoGroup}>
-                        {/* Mobile Menu Icon */}
-                        <button
-                            className={styles.mobileMenuBtn}
-                            onClick={() => setMobileMenuOpen(true)}
-                        >
-                            <Menu size={28} />
-                        </button>
-                        <div className={styles.logo}>ID-<span style={{ color: '#fff' }}>SECURE</span>X</div>
-                    </div>
+            <AppBar
+                position="fixed"
+                elevation={0}
+                sx={{
+                    backgroundColor: isScrolled ? 'rgba(18, 18, 18, 0.7)' : 'transparent',
+                    backdropFilter: 'blur(12px)',
+                    borderBottom: '1px solid',
+                    borderColor: 'rgba(255, 255, 255, 0.1)',
+                    transition: 'all 0.3s ease',
+                    height: isScrolled ? '70px' : '80px',
+                    justifyContent: 'center',
+                }}
+            >
+                <Container maxWidth="lg">
+                    <Toolbar disableGutters sx={{ justifyContent: 'space-between' }}>
+                        {/* Logo Group */}
+                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                            <IconButton
+                                color="inherit"
+                                aria-label="open drawer"
+                                edge="start"
+                                onClick={() => setMobileMenuOpen(true)}
+                                sx={{ display: { md: 'none' }, mr: 2 }}
+                            >
+                                <Menu size={28} />
+                            </IconButton>
 
-                    <div className={styles.navLinks}>
-                        <button onClick={() => scrollTo('home')}>בית</button>
-                        <button onClick={() => scrollTo('services')}>שירותים</button>
-                        <button onClick={() => scrollTo('about')}>אודות</button>
-                        <button onClick={() => scrollTo('contact')}>צור קשר</button>
-                    </div>
-                </div>
-            </nav>
+                            <Typography
+                                variant="h6"
+                                component="div"
+                                sx={{
+                                    fontWeight: 700,
+                                    letterSpacing: '1px',
+                                    color: 'primary.main',
+                                    fontSize: '1.5rem',
+                                    display: 'flex',
+                                    alignItems: 'center'
+                                }}
+                            >
+                                ID-<Box component="span" sx={{ color: 'text.primary' }}>SECURE</Box>X
+                            </Typography>
+                        </Box>
 
-            {/* Mobile Side Menu */}
-            <div
-                className={`${styles.mobileMenuOverlay} ${mobileMenuOpen ? styles.open : ''}`}
-                onClick={() => setMobileMenuOpen(false)}
-            />
+                        {/* Desktop Links */}
+                        <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 4 }}>
+                            {navLinks.map((item) => (
+                                <Button
+                                    key={item.id}
+                                    onClick={() => scrollTo(item.id)}
+                                    sx={{
+                                        color: 'text.primary',
+                                        opacity: 0.8,
+                                        fontWeight: 500,
+                                        fontSize: '0.95rem',
+                                        '&:hover': {
+                                            opacity: 1,
+                                            color: 'primary.main',
+                                            backgroundColor: 'transparent'
+                                        }
+                                    }}
+                                >
+                                    {item.title}
+                                </Button>
+                            ))}
+                        </Box>
+                    </Toolbar>
+                </Container>
+            </AppBar>
 
-            <div className={`${styles.mobileMenu} ${mobileMenuOpen ? styles.open : ''}`}>
-                <button
-                    className={styles.closeButton}
-                    onClick={() => setMobileMenuOpen(false)}
-                >
-                    <X size={32} />
-                </button>
-                <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '20px' }}>
+            {/* Mobile Drawer */}
+            <Drawer
+                anchor="right"
+                open={mobileMenuOpen}
+                onClose={() => setMobileMenuOpen(false)}
+                PaperProps={{
+                    sx: {
+                        width: 280,
+                        backgroundColor: 'background.default',
+                        borderLeft: '1px solid',
+                        borderColor: 'divider',
+                        padding: 2
+                    }
+                }}
+            >
+                <Box sx={{ display: 'flex', justifyContent: 'flex-end', mb: 2 }}>
+                    <IconButton onClick={() => setMobileMenuOpen(false)} sx={{ color: 'text.primary' }}>
+                        <X size={32} />
+                    </IconButton>
+                </Box>
+
+                <Box sx={{ display: 'flex', justifyContent: 'center', mb: 4 }}>
                     <Image
                         src="/images/logo.png"
                         alt="IdSecureX Logo"
@@ -91,14 +143,31 @@ export default function Navbar() {
                         height={180}
                         style={{ objectFit: 'contain' }}
                     />
-                </div>
-                <div className={styles.mobileMenuLinks}>
-                    <button onClick={() => scrollTo('home')}>בית</button>
-                    <button onClick={() => scrollTo('services')}>שירותים</button>
-                    <button onClick={() => scrollTo('about')}>אודות</button>
-                    <button onClick={() => scrollTo('contact')}>צור קשר</button>
-                </div>
-            </div>
+                </Box>
+
+                <List>
+                    {navLinks.map((item) => (
+                        <ListItem key={item.id} disablePadding>
+                            <ListItemButton
+                                onClick={() => scrollTo(item.id)}
+                                sx={{
+                                    borderBottom: '1px solid',
+                                    borderColor: 'divider',
+                                    textAlign: 'right',
+                                }}
+                            >
+                                <ListItemText
+                                    primary={item.title}
+                                    primaryTypographyProps={{
+                                        fontSize: '1.25rem',
+                                        fontWeight: 500,
+                                    }}
+                                />
+                            </ListItemButton>
+                        </ListItem>
+                    ))}
+                </List>
+            </Drawer>
         </>
     );
 }

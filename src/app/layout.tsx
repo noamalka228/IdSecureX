@@ -10,7 +10,7 @@ const rubik = Rubik({
 });
 
 export const metadata: Metadata = {
-  title: "Id-SecureX | פתרונות אבטחה יוקרתיים",
+  title: "Id-SecureX | פתרונות אבטחה",
   description: "מערכות אבטחה מתקדמות, מצלמות, ובית חכם לבתים פרטיים ועסקים.",
 };
 

@@ -32,7 +32,7 @@ export default function Footer() {
                 <Box
                     sx={{
                         display: 'flex',
-                        flexDirection: { xs: 'column', sm: 'row' },
+                        flexDirection: { xs: 'column', md: 'row' },
                         alignItems: 'center',
                         gap: 4,
                         justifyContent: 'center'
@@ -48,7 +48,10 @@ export default function Footer() {
                             alignItems: 'center',
                             gap: 1,
                             textTransform: 'none',
-                            color: 'inherit'
+                            color: 'inherit',
+                            flex: 1,
+                            width: '100%',
+                            p: 2
                         }}
                     >
                         <Phone color="#D4AF37" size={24} />
@@ -65,7 +68,10 @@ export default function Footer() {
                             alignItems: 'center',
                             gap: 1,
                             textTransform: 'none',
-                            color: 'inherit'
+                            color: 'inherit',
+                            flex: 1,
+                            width: '100%',
+                            p: 2
                         }}
                     >
                         <Mail color="#D4AF37" size={24} />
@@ -74,7 +80,17 @@ export default function Footer() {
                         </Typography>
                     </Button>
 
-                    <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 1, p: '6px 8px' }}>
+                    <Box sx={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                        gap: 1,
+                        textTransform: 'none',
+                        color: 'inherit',
+                        flex: 1,
+                        width: '100%',
+                        p: 2
+                    }}>
                         <MapPin color="#D4AF37" size={24} />
                         <Typography variant="body1" fontWeight={500}>
                             {CONTACT_INFO.ADDRESS}

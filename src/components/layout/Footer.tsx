@@ -26,7 +26,7 @@ export default function Footer() {
                     color="text.secondary"
                     sx={{ mb: 6, maxWidth: 600, mx: 'auto' }}
                 >
-                    השאר פרטים ונחזור אליך בהקדם.
+                    בחרו באפשרות המתאימה עבורכם, השאירו פרטים ונחזור אליכם בהקדם.
                 </Typography>
 
                 <Box

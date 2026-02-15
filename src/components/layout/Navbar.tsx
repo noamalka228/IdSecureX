@@ -84,7 +84,7 @@ export default function Navbar() {
                                     alignItems: 'center'
                                 }}
                             >
-                                ID-<Box component="span" sx={{ color: 'text.primary' }}>SECURE</Box>X
+                                X<Box component="span" sx={{ color: 'text.primary' }}>SECURE</Box>-ID
                             </Typography>
                         </Box>
 

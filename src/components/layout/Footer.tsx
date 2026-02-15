@@ -1,7 +1,7 @@
 "use client";
 
 import { Phone, Mail, MapPin } from "lucide-react";
-import { Box, Container, Stack, Typography } from "@mui/material";
+import { Box, Container, Typography } from "@mui/material";
 
 export default function Footer() {
     return (
@@ -28,11 +28,14 @@ export default function Footer() {
                     מומחי האבטחה שלנו זמינים לייעוץ. השאר פרטים ונחזור אליך בהקדם.
                 </Typography>
 
-                <Stack
-                    direction={{ xs: 'column', sm: 'row' }}
-                    spacing={4}
-                    justifyContent="center"
-                    alignItems="center"
+                <Box
+                    sx={{
+                        display: 'flex',
+                        flexDirection: { xs: 'column', sm: 'row' },
+                        alignItems: 'center',
+                        gap: 4,
+                        justifyContent: 'center'
+                    }}
                 >
                     <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 1 }}>
                         <Phone color="#D4AF37" size={24} />
@@ -52,7 +55,7 @@ export default function Footer() {
                             מרכז הארץ, ישראל
                         </Typography>
                     </Box>
-                </Stack>
+                </Box>
 
                 <Typography
                     variant="body2"

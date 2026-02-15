@@ -138,7 +138,7 @@ export default function Home() {
             transform: `translateY(${Math.max(0, 20 - scrollYValues.scrollY / 3)}px)`,
             transition: 'opacity 0.2s ease-out, transform 0.2s ease-out'
           }}>
-            <h2 className={styles.heroSubtitle}>בטיחות היא היוקרה החדשה</h2>
+            <h2 className={styles.heroSubtitle}>הבטיחות שלכם - המקצועיות שלנו</h2>
             <h1 className={styles.heroTitle}>פתרונות אבטחה<br />בסטנדרט הגבוה ביותר</h1>
             <p className={styles.heroDesc}>
               אנו מספקים מערכות אבטחה מתקדמות, מצלמות חכמות ופתרונות בית חכם המותאמים אישית לצרכים שלך. שקט נפשי מלא, בעיצוב יוקרתי.

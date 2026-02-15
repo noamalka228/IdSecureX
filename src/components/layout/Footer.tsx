@@ -39,7 +39,7 @@ export default function Footer() {
                     }}
                 >
                     <Button
-                        href={`${SOCIAL_LINKS.WHATSAPP}?text=${encodeURIComponent(MESSAGES.WHATSAPP_BODY)}`}
+                        href={`${SOCIAL_LINKS.WHATSAPP}?text=${encodeURIComponent(MESSAGES.MESSAGE_BODY)}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         sx={{
@@ -58,7 +58,7 @@ export default function Footer() {
                     </Button>
 
                     <Button
-                        href={`mailto:${CONTACT_INFO.EMAIL}?subject=${encodeURIComponent(MESSAGES.EMAIL_SUBJECT)}&body=${encodeURIComponent(MESSAGES.EMAIL_BODY)}`}
+                        href={`mailto:${CONTACT_INFO.EMAIL}?subject=${encodeURIComponent(MESSAGES.EMAIL_SUBJECT)}&body=${encodeURIComponent(MESSAGES.MESSAGE_BODY)}`}
                         sx={{
                             display: 'flex',
                             flexDirection: 'column',

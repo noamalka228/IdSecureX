@@ -11,6 +11,5 @@ export const SOCIAL_LINKS = {
 
 export const MESSAGES = {
     EMAIL_SUBJECT: 'פנייה מאתר Id-SecureX',
-    EMAIL_BODY: 'היי, אשמח לקבל פרטים נוספים לגבי שירותי האבטחה שלכם.',
-    WHATSAPP_BODY: 'היי, אשמח לקבל פרטים נוספים לגבי שירותי האבטחה שלכם.',
+    MESSAGE_BODY: 'היי, הגעתי דרך האתר. אשמח לקבל פרטים נוספים על שירותי האבטחה שלכם.',
 };

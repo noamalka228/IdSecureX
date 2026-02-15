@@ -1,0 +1,14 @@
+.featuresGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    text-align: center;
+}
+
+.featureIcon {
+    margin-bottom: 10px;
+}
+
+.featureTitle {
+    color: #fff;
+}

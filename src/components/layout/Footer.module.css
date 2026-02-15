@@ -1,0 +1,43 @@
+.footer {
+    background: var(--surface);
+    padding: 80px 20px 40px;
+    text-align: center;
+    border-top: 1px solid var(--border);
+}
+
+.footerContent {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contactInfo {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.contactItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.contactDetails {
+    color: var(--text-main);
+    font-weight: 500;
+}
+
+.copy {
+    margin-top: 80px;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+@media (max-width: 768px) {
+    .contactInfo {
+        flex-direction: column;
+        gap: 30px;
+    }
+}

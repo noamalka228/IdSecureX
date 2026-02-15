@@ -7,7 +7,7 @@
   --text-main: #F5F5F5;
   --text-muted: #A3A3A3;
   --border: #333333;
-  
+
   --glass-bg: rgba(18, 18, 18, 0.7);
   --glass-border: rgba(255, 255, 255, 0.1);
 }
@@ -32,7 +32,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: 700;
   line-height: 1.1;
   color: var(--text-main);
@@ -73,4 +78,52 @@ button {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid var(--glass-border);
+}
+
+/* Shared Components Styles */
+
+.btnPrimary,
+.btnSecondary {
+  padding: 14px 32px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.btnPrimary {
+  background: var(--primary);
+  color: #000;
+  border: none;
+}
+
+.btnPrimary:hover {
+  background: var(--primary-hover);
+  transform: translateY(-2px);
+}
+
+.btnSecondary {
+  background: transparent;
+  color: #fff;
+  border: 1px solid #fff;
+}
+
+.btnSecondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.section {
+  padding: 60px 20px;
+  width: 100%;
+}
+
+.sectionTitle {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.sectionSubtitle {
+  color: var(--primary);
+  font-size: 1.1rem;
 }

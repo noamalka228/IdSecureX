@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import {
@@ -21,23 +21,25 @@ import {
 
 export default function Navbar() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-    // Use MUI scroll trigger for efficient scroll detection
-    const isScrolled = useScrollTrigger({
+    const isScrolled: boolean = useScrollTrigger({
         disableHysteresis: true,
         threshold: 50,
     });
 
-    const scrollTo = (id: string) => {
+    const handleNavigation = (id: string) => {
         setMobileMenuOpen(false);
-        const element = document.getElementById(id);
-        if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
+        const isHomePage: boolean = window.location.pathname === '/';
+
+        if (id === 'dvr-calculator') window.location.href = '/dvr-calculator';
+        else if (!isHomePage) window.location.href = `/${id === 'home' ? '' : '#' + id}`;
+        else if (id === 'home') window.scrollTo({ top: 0, behavior: 'smooth' });
+        else {
+            const element: HTMLElement | null = document.getElementById(id);
+            if (element) element.scrollIntoView({ behavior: 'smooth' });
         }
     };
 
     const navLinks = [
-        { title: 'בית', id: 'home' },
         { title: 'השירותים שלנו', id: 'services' },
         { title: 'צור קשר', id: 'contact' },
         { title: 'מחשבון DVR', id: 'dvr-calculator' },
@@ -81,8 +83,11 @@ export default function Navbar() {
                                     color: 'primary.main',
                                     fontSize: '1.5rem',
                                     display: 'flex',
-                                    alignItems: 'center'
+                                    alignItems: 'center',
+                                    cursor: 'pointer',
+                                    textDecoration: 'none'
                                 }}
+                                onClick={() => handleNavigation('home')}
                             >
                                 X<Box component="span" sx={{ color: 'text.primary' }}>SECURE</Box>-ID
                             </Typography>
@@ -93,7 +98,7 @@ export default function Navbar() {
                             {navLinks.map((item) => (
                                 <Button
                                     key={item.id}
-                                    onClick={() => scrollTo(item.id)}
+                                    onClick={() => handleNavigation(item.id)}
                                     sx={{
                                         color: 'text.primary',
                                         opacity: 0.8,
@@ -149,7 +154,7 @@ export default function Navbar() {
                     {navLinks.map((item) => (
                         <ListItem key={item.id} disablePadding>
                             <ListItemButton
-                                onClick={() => scrollTo(item.id)}
+                                onClick={() => handleNavigation(item.id)}
                                 sx={{
                                     borderBottom: '1px solid',
                                     borderColor: 'divider',

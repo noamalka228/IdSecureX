@@ -168,9 +168,18 @@ export default function Home() {
               <div className={styles.iconBox}>
                 <Eye size={48} color="#D4AF37" />
               </div>
-              <h3 className={styles.cardTitle}>מצלמות אבטחה 4K</h3>
+              <h3 className={styles.cardTitle}>מצלמות אבטחה איכותיות</h3>
               <p className={styles.cardDesc}>
-                מערכות צילום ברזולוציה גבוהה עם יכולות ראיית לילה בצבע, זיהוי פנים ובינה מלאכותית לניטור מדויק.
+                מערכות צילום ברזולוציה גבוהה עם יכולות ראיית לילה בצבע, המשתלבות בטבעיות עם עיצוב הבית.
+              </p>
+            </div>
+            <div className={styles.card}>
+              <div className={styles.iconBox}>
+                <Shield size={48} color="#D4AF37" />
+              </div>
+              <h3 className={styles.cardTitle}>מערכות אזעקה</h3>
+              <p className={styles.cardDesc}>
+                גלאים מתקדמים להתרעה על פריצות, אפשרות חיבור למוקד מצוקה 24/7 והתראות מיידיות לטלפון הנייד.
               </p>
             </div>
 
@@ -180,17 +189,7 @@ export default function Home() {
               </div>
               <h3 className={styles.cardTitle}>בית חכם</h3>
               <p className={styles.cardDesc}>
-                שליטה מלאה על הבית מכל מקום בעולם. אינטגרציה מלאה בין האזעקה, המצלמות, התאורה והמיזוג.
-              </p>
-            </div>
-
-            <div className={styles.card}>
-              <div className={styles.iconBox}>
-                <Shield size={48} color="#D4AF37" />
-              </div>
-              <h3 className={styles.cardTitle}>מערכות אזעקה</h3>
-              <p className={styles.cardDesc}>
-                גלאים מתקדמים למניעת פריצות, חיבור למוקד מצוקה 24/7 והתראות מיידיות לטלפון הנייד.
+                שליטה על המערכות המתוקנות בביתכם מכל מקום בעולם באמצעות הסמארטפון. אינטגרציה מלאה בין האזעקה והמצלמות.
               </p>
             </div>
           </div>
@@ -212,13 +211,12 @@ export default function Home() {
             <div className={styles.showcaseContent}>
               <h2 className={styles.sectionTitle}>טכנולוגיה ללא פשרות</h2>
               <p style={{ color: '#a3a3a3', marginBottom: '20px' }}>
-                אנו משתמשים בציוד המתקדם ביותר בשוק כדי להבטיח שהנכס שלך מוגן בכל רגע נתון.
-                המצלמות שלנו מעוצבות להשתלב בצורה הרמונית עם עיצוב הבית, מבלי לפגוע באסתטיקה.
+                אנו משתמשים בציוד המתקדם ביותר בשוק כדי להבטיח שהנכס שלכם מוגן בכל רגע נתון.
               </p>
               <ul className={styles.featureList}>
                 <li className={styles.featureItem}><Check color="#D4AF37" size={20} /> עיצוב מינימליסטי ויוקרתי</li>
                 <li className={styles.featureItem}><Check color="#D4AF37" size={20} /> עמידות בכל תנאי מזג אוויר</li>
-                <li className={styles.featureItem}><Check color="#D4AF37" size={20} /> הקלטה בענן ובשרת מקומי</li>
+                <li className={styles.featureItem}><Check color="#D4AF37" size={20} />שמירת הקלטות בשרת מקומי</li>
               </ul>
             </div>
           </div>
@@ -254,15 +252,11 @@ export default function Home() {
           <div className={styles.grid} style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))' }}>
             <div>
               <Lock size={40} color="#555" style={{ marginBottom: 10 }} />
-              <h4 style={{ color: '#fff' }}>הצפנה מלאה</h4>
+              <h4 style={{ color: '#fff' }}>גישה מאובטחת למערכות</h4>
             </div>
             <div>
               <Shield size={40} color="#555" style={{ marginBottom: 10 }} />
               <h4 style={{ color: '#fff' }}>אחריות מורחבת</h4>
-            </div>
-            <div>
-              <Phone size={40} color="#555" style={{ marginBottom: 10 }} />
-              <h4 style={{ color: '#fff' }}>תמיכה 24/7</h4>
             </div>
             <div>
               <Check size={40} color="#555" style={{ marginBottom: 10 }} />
@@ -283,7 +277,7 @@ export default function Home() {
           <div className={styles.contactInfo}>
             <div className={styles.contactItem}>
               <Phone color="#D4AF37" size={24} />
-              <span>050-123-4567</span>
+              <span>052-590-6555</span>
             </div>
             <div className={styles.contactItem}>
               <Mail color="#D4AF37" size={24} />
@@ -291,7 +285,7 @@ export default function Home() {
             </div>
             <div className={styles.contactItem}>
               <MapPin color="#D4AF37" size={24} />
-              <span>תל אביב, ישראל</span>
+              <span>מרכז הארץ, ישראל</span>
             </div>
           </div>
 

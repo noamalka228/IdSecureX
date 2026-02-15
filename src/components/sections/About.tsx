@@ -22,6 +22,7 @@ export default function About() {
                         </ListItemIcon>
                         <ListItemText
                             primary={feature}
+                            sx={{ textAlign: 'right' }}
                             primaryTypographyProps={{
                                 fontSize: '1.1rem',
                                 color: 'text.secondary'
@@ -81,14 +82,6 @@ export default function About() {
                         )}
                     </Box>
                 </Box>
-
-                {/* Showcase 2 - Note: visual order handled by DOM order for simplicity or grid-template-areas, 
-                    but here we just swap source order for 'reverse' layout if we want, 
-                    OR use direction logic. CSS Grid doesn't do 'row-reverse' easily without areas or order prop.
-                    Easier to just swap the columns in JSX for the second one since it's hardcoded.
-                    Wait, previous implementation used row-reverse. 
-                    Let's use just simple swapping of Boxes for 2nd showcase. 
-                */}
                 <Box
                     sx={{
                         display: 'grid',
@@ -97,21 +90,8 @@ export default function About() {
                         alignItems: 'center'
                     }}
                 >
-                    {/* On mobile we want image first? Previous code: direction={{ xs: 'column-reverse', md: 'row-reverse' }}
-                        This means on mobile: column-reverse -> Content, then Image?
-                        And desktop: row-reverse -> Content, then Image.
-                        So Content is Left, Image is Right visually?
-                        Wait, Grid row-reverse puts 2nd child first.
-                        If children were [Image, Content]:
-                        Row-reverse: Content | Image.
-                        Column-reverse: Content (top), Image (bottom).
-                        
-                        So I should structure it: [Content, Image] and standard grid?
-                        Or just use `order` prop if using flex/grid.
-                        Let's use `order` style.
-                     */}
-                    <Box sx={{ order: { xs: 2, md: 2 } }}>
-                        {/* Image Column - Visual Right (2nd) on Desktop */}
+                    <Box sx={{ order: { xs: 1, md: 2 } }}>
+                        {/* Image Column - Visual Right (2nd) on Desktop, Top (1st) on Mobile */}
                         <Box sx={{
                             position: 'relative',
                             height: { xs: 300, md: 500 },
@@ -127,8 +107,8 @@ export default function About() {
                             />
                         </Box>
                     </Box>
-                    <Box sx={{ order: { xs: 1, md: 1 } }}>
-                        {/* Content Column - Visual Left (1st) on Desktop */}
+                    <Box sx={{ order: { xs: 2, md: 1 } }}>
+                        {/* Content Column - Visual Left (1st) on Desktop, Bottom (2nd) on Mobile */}
                         {renderContent(
                             "שליטה בקצות האצבעות",
                             "האפליקציה המתקדמת שלנו מאפשרת לך לנהל את מערך האבטחה בקלות. צפה בשידור חי, דרוך את האזעקה, או פתח את השער לאורחים - הכל בלחיצת כפתור.",

@@ -38,9 +38,9 @@ export default function Navbar() {
 
     const navLinks = [
         { title: 'בית', id: 'home' },
-        { title: 'שירותים', id: 'services' },
-        { title: 'אודות', id: 'about' },
+        { title: 'השירותים שלנו', id: 'services' },
         { title: 'צור קשר', id: 'contact' },
+        { title: 'מחשבון DVR', id: 'dvr-calculator' },
     ];
 
     return (

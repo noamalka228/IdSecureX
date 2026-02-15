@@ -35,13 +35,14 @@ export default function Hero() {
             component="section"
             sx={{
                 position: 'relative',
-                height: '100vh',
+                minHeight: '100vh',
                 width: '100%',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 textAlign: 'center',
                 overflow: 'hidden',
+                py: 4, // Add padding to prevent clipping on small screens
                 // Fallback background color before image loads
                 backgroundColor: 'background.default'
             }}
@@ -136,7 +137,7 @@ export default function Hero() {
                             fontSize: { xs: '2rem', md: '4rem' },
                             fontWeight: 700,
                             mb: 2,
-                            lineHeight: { xs: 1.2, md: 1.1 }
+                            // lineHeight: { xs: 1.2, md: 1.1 }
                         }}
                     >
                         פתרונות אבטחה<br />בסטנדרט הגבוה ביותר
@@ -153,10 +154,10 @@ export default function Hero() {
                             px: { xs: 2, md: 0 }
                         }}
                     >
-                        אנו מספקים מערכות אבטחה מתקדמות, מצלמות חכמות ופתרונות בית חכם המותאמים אישית לצרכים שלך. שקט נפשי מלא, בעיצוב יוקרתי.
+                        אנו מספקים מערכות אבטחה מתקדמות, מצלמות חכמות ופתרונות בית חכם המותאמים אישית לצרכים שלך.
                     </Typography>
 
-                    <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center' }}>
+                    <Box sx={{ display: 'flex', justifyContent: 'center' }}>
                         <Button
                             variant="contained"
                             color="primary"

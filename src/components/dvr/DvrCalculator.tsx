@@ -49,9 +49,9 @@ const DvrCalculator = () => {
     const [result, setResult] = useState<{ type: 'diff' | 'incident'; content: string } | null>(null);
 
     useEffect(() => {
-        setCurrentTime(new Date().toLocaleTimeString('he-IL'));
+        setCurrentTime(new Date().toLocaleTimeString());
         const interval = setInterval(() => {
-            setCurrentTime(new Date().toLocaleTimeString('he-IL'));
+            setCurrentTime(new Date().toLocaleTimeString());
         }, 1000);
         return () => clearInterval(interval);
     }, []);
@@ -187,7 +187,6 @@ const DvrCalculator = () => {
                                 <Stack direction={{ xs: 'column', md: 'row' }} spacing={2}>
                                     <Box flex={1}>
                                         <DatePicker
-                                            label="תאריך"
                                             value={inputs.realDate}
                                             onChange={(newValue) => handleDateChange('realDate', newValue)}
                                             slotProps={{
@@ -195,14 +194,12 @@ const DvrCalculator = () => {
                                                     size: 'small',
                                                     fullWidth: true,
                                                     error: errors.realDate,
-                                                    helperText: errors.realDate ? 'שדה חובה' : ''
                                                 }
                                             }}
                                         />
                                     </Box>
                                     <Box flex={1}>
                                         <TimePicker
-                                            label="שעה"
                                             value={inputs.realTime}
                                             onChange={(newValue) => handleDateChange('realTime', newValue)}
                                             views={['hours', 'minutes', 'seconds']}
@@ -212,7 +209,6 @@ const DvrCalculator = () => {
                                                     size: 'small',
                                                     fullWidth: true,
                                                     error: errors.realTime,
-                                                    helperText: errors.realTime ? 'שדה חובה' : ''
                                                 }
                                             }}
                                         />
@@ -226,7 +222,6 @@ const DvrCalculator = () => {
                                 <Stack direction={{ xs: 'column', md: 'row' }} spacing={2}>
                                     <Box flex={1}>
                                         <DatePicker
-                                            label="תאריך"
                                             value={inputs.dvrDate}
                                             onChange={(newValue) => handleDateChange('dvrDate', newValue)}
                                             slotProps={{
@@ -234,14 +229,12 @@ const DvrCalculator = () => {
                                                     size: 'small',
                                                     fullWidth: true,
                                                     error: errors.dvrDate,
-                                                    helperText: errors.dvrDate ? 'שדה חובה' : ''
                                                 }
                                             }}
                                         />
                                     </Box>
                                     <Box flex={1}>
                                         <TimePicker
-                                            label="שעה"
                                             value={inputs.dvrTime}
                                             onChange={(newValue) => handleDateChange('dvrTime', newValue)}
                                             views={['hours', 'minutes', 'seconds']}
@@ -251,7 +244,6 @@ const DvrCalculator = () => {
                                                     size: 'small',
                                                     fullWidth: true,
                                                     error: errors.dvrTime,
-                                                    helperText: errors.dvrTime ? 'שדה חובה' : ''
                                                 }
                                             }}
                                         />
@@ -266,7 +258,6 @@ const DvrCalculator = () => {
                                     <Stack direction={{ xs: 'column', md: 'row' }} spacing={2}>
                                         <Box flex={1}>
                                             <DatePicker
-                                                label="תאריך"
                                                 value={inputs.incidentDate}
                                                 onChange={(newValue) => handleDateChange('incidentDate', newValue)}
                                                 slotProps={{
@@ -274,14 +265,12 @@ const DvrCalculator = () => {
                                                         size: 'small',
                                                         fullWidth: true,
                                                         error: errors.incidentDate,
-                                                        helperText: errors.incidentDate ? 'שדה חובה' : ''
                                                     }
                                                 }}
                                             />
                                         </Box>
                                         <Box flex={1}>
                                             <TimePicker
-                                                label="שעה"
                                                 value={inputs.incidentTime}
                                                 onChange={(newValue) => handleDateChange('incidentTime', newValue)}
                                                 views={['hours', 'minutes', 'seconds']}
@@ -291,7 +280,6 @@ const DvrCalculator = () => {
                                                         size: 'small',
                                                         fullWidth: true,
                                                         error: errors.incidentTime,
-                                                        helperText: errors.incidentTime ? 'שדה חובה' : ''
                                                     }
                                                 }}
                                             />

@@ -26,8 +26,12 @@ const theme = createTheme({
         },
         divider: '#333333',
     },
+    direction: 'rtl',
     typography: {
         fontFamily: rubik.style.fontFamily,
+        allVariants: {
+            textAlign: 'right',
+        },
         h1: {
             fontWeight: 700,
             lineHeight: 1.1,

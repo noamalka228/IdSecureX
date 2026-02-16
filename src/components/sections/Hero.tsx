@@ -124,6 +124,7 @@ export default function Hero() {
                             letterSpacing: { xs: '0.1rem', md: '0.2rem' },
                             fontSize: { xs: '0.9rem', md: '1rem' },
                             fontWeight: 500,
+                            textAlign: 'center',
                             mb: 2,
                         }}
                     >
@@ -137,7 +138,7 @@ export default function Hero() {
                             fontSize: { xs: '2rem', md: '4rem' },
                             fontWeight: 700,
                             mb: 2,
-                            // lineHeight: { xs: 1.2, md: 1.1 }
+                            textAlign: 'center',
                         }}
                     >
                         פתרונות אבטחה<br />בסטנדרט הגבוה ביותר
@@ -151,7 +152,8 @@ export default function Hero() {
                             maxWidth: 600,
                             mx: 'auto',
                             mb: 4,
-                            px: { xs: 2, md: 0 }
+                            px: { xs: 2, md: 0 },
+                            textAlign: 'center',
                         }}
                     >
                         אנו מספקים מערכות אבטחה מתקדמות, מצלמות חכמות ופתרונות בית חכם המותאמים אישית לצרכים שלך.

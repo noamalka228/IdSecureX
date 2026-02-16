@@ -22,7 +22,6 @@ export default function About() {
                         </ListItemIcon>
                         <ListItemText
                             primary={feature}
-                            sx={{ textAlign: 'right' }}
                             primaryTypographyProps={{
                                 fontSize: '1.1rem',
                                 color: 'text.secondary'

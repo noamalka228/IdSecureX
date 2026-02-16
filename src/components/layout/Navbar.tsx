@@ -158,7 +158,6 @@ export default function Navbar() {
                                 sx={{
                                     borderBottom: '1px solid',
                                     borderColor: 'divider',
-                                    textAlign: 'right',
                                 }}
                             >
                                 <ListItemText

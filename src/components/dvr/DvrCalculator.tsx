@@ -139,16 +139,6 @@ const DvrCalculator = () => {
                 .minute(incidentTime.minute())
                 .second(incidentTime.second());
 
-            // Apply diff: Incident Time - Diff = DVR Time at Incident
-            // If DVR is BEHIND real time (positive diff), we SUBTRACT diff from real incident time to get DVR time?
-            // Wait, logic check:
-            // Diff = Real - DVR
-            // Real = DVR + Diff
-            // DVR = Real - Diff
-            // So if we have Real Incident Time, we want DVR Incident Time.
-            // DVR_Incident = Real_Incident - Diff. 
-            // Correct.
-
             const dvrTimeOnIncident = incidentDateTime.subtract(timeDiff, 'millisecond');
 
             setResult({
@@ -171,6 +161,22 @@ const DvrCalculator = () => {
             >
                 <Card sx={{ maxWidth: 600, width: '100%', p: 2, boxShadow: 3 }}>
                     <CardContent>
+                        <Typography
+                            variant="h2"
+                            component="h2"
+                            align="center"
+                            gutterBottom
+                            sx={{
+                                color: 'primary.main',
+                                textTransform: 'uppercase',
+                                letterSpacing: { xs: '0.1rem', md: '0.2rem' },
+                                fontSize: { xs: '0.9rem', md: '1rem' },
+                                fontWeight: 500,
+                                textAlign: 'center',
+                                mb: 2,
+                            }}>
+                            השימוש הינו באחריות המשתמש בלבד &copy;
+                        </Typography>
                         <Typography variant="h4" component="h2" align="center" gutterBottom>
                             מחשבון זמן DVR
                         </Typography>

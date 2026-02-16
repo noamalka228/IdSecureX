@@ -10,7 +10,6 @@ import {
     Tab,
     Button,
     Stack,
-    TextField
 } from '@mui/material';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
@@ -55,9 +54,9 @@ const DvrCalculator = () => {
             realDate: now,
             realTime: now,
         }));
-        setCurrentTime(new Date().toLocaleTimeString());
+        setCurrentTime(now.locale('en').format('hh:mm:ss A'));
         const interval = setInterval(() => {
-            setCurrentTime(new Date().toLocaleTimeString());
+            setCurrentTime(dayjs().locale('en').format('hh:mm:ss A'));
         }, 1000);
         return () => clearInterval(interval);
     }, []);

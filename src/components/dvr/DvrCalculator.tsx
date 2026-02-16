@@ -49,6 +49,12 @@ const DvrCalculator = () => {
     const [result, setResult] = useState<{ type: 'diff' | 'incident'; content: string } | null>(null);
 
     useEffect(() => {
+        const now = dayjs();
+        setInputs((prev) => ({
+            ...prev,
+            realDate: now,
+            realTime: now,
+        }));
         setCurrentTime(new Date().toLocaleTimeString());
         const interval = setInterval(() => {
             setCurrentTime(new Date().toLocaleTimeString());

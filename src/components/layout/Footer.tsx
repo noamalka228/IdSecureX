@@ -14,17 +14,16 @@ export default function Footer() {
                 py: 10,
                 borderTop: 1,
                 borderColor: 'divider',
-                textAlign: 'center'
             }}
         >
             <Container maxWidth="md">
-                <Typography variant="h4" component="h2" gutterBottom fontWeight="bold">
+                <Typography variant="h4" component="h2" gutterBottom fontWeight="bold" textAlign="center">
                     צור קשר
                 </Typography>
                 <Typography
                     variant="body1"
                     color="text.secondary"
-                    sx={{ mb: 6, maxWidth: 600, mx: 'auto' }}
+                    sx={{ mb: 6, maxWidth: 600, mx: 'auto', textAlign: 'center' }}
                 >
                     בחרו באפשרות המתאימה עבורכם, השאירו פרטים ונחזור אליכם בהקדם.
                 </Typography>
@@ -101,6 +100,7 @@ export default function Footer() {
                 <Typography
                     variant="body2"
                     color="text.secondary"
+                    textAlign="center"
                     sx={{ mt: 10 }}
                 >
                     © {new Date().getFullYear()} Id-SecureX. כל הזכויות שמורות.

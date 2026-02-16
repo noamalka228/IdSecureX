@@ -149,7 +149,7 @@ const DvrCalculator = () => {
     };
 
     return (
-        <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="he">
+        <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="he" localeText={{ okButtonLabel: 'אישור', cancelButtonLabel: 'ביטול' }}>
             <Box
                 display="flex"
                 flexDirection="column"

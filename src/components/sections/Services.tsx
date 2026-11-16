@@ -1,6 +1,6 @@
 "use client";
 
-import { Eye, Shield, Smartphone } from "lucide-react";
+import { Eye, Shield, LockKeyhole } from "lucide-react";
 import { Box, Container, Typography, Paper } from "@mui/material";
 
 export default function Services() {
@@ -16,9 +16,9 @@ export default function Services() {
             desc: "גלאים מתקדמים להתרעה על פריצות, אפשרות חיבור למוקד מצוקה 24/7 והתראות מיידיות לטלפון הנייד."
         },
         {
-            icon: <Smartphone size={48} color="#D4AF37" />,
-            title: "בית חכם",
-            desc: "שליטה על המערכות המותקנות בביתכם מכל מקום בעולם באמצעות הסמארטפון. אינטגרציה מלאה בין האזעקה והמצלמות."
+            icon: <LockKeyhole size={48} color="#D4AF37" />,
+            title: "מנעולים חכמים",
+            desc: "התקנת מנעולים חכמים עם מערכות זיהוי פנים ואפשרויות ניטרול מגוונות באמצעות קוד, צ'יפים, טביעות אצבע או אפליקציה."
         }
     ];
 

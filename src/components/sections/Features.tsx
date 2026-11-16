@@ -1,12 +1,12 @@
 "use client";
 
-import { Lock, Shield, Check } from "lucide-react";
+import { LockKeyhole, Shield, Check } from "lucide-react";
 import { Box, Container, Typography } from "@mui/material";
 
 export default function Features() {
     const features = [
         {
-            icon: <Lock size={40} />,
+            icon: <LockKeyhole size={40} />,
             title: "גישה מאובטחת למערכות"
         },
         {

@@ -1,6 +1,6 @@
 "use client";
 
-import { Eye, Shield, Smartphone } from "lucide-react";
+import { Eye, Shield, LockKeyhole, BellRing, Cctv } from "lucide-react";
 import { Box, Container, Typography, Paper } from "@mui/material";
 
 export default function Services() {
@@ -16,9 +16,19 @@ export default function Services() {
             desc: "גלאים מתקדמים להתרעה על פריצות, אפשרות חיבור למוקד מצוקה 24/7 והתראות מיידיות לטלפון הנייד."
         },
         {
-            icon: <Smartphone size={48} color="#D4AF37" />,
-            title: "בית חכם",
-            desc: "שליטה על המערכות המותקנות בביתכם מכל מקום בעולם באמצעות הסמארטפון. אינטגרציה מלאה בין האזעקה והמצלמות."
+            icon: <LockKeyhole size={48} color="#D4AF37" />,
+            title: "מנעולים חכמים",
+            desc: "התקנת מנעולים חכמים עם מערכות זיהוי פנים ואפשרויות ניטרול מגוונות באמצעות קוד, צ'יפים, טביעות אצבע או אפליקציה."
+        },
+        {
+            icon: <BellRing size={48} color="#D4AF37" />,
+            title: "אינטרקום וקודנים לבניינים, עסקים ובתים פרטיים",
+            desc: "התקנת מערכות אינטרקום חכמות וקודנים לשערים ודלתות כניסה – לשליטה מלאה על הגישה לנכס מכל מקום."
+        },
+        {
+            icon: <Cctv size={48} color="#D4AF37" />,
+            title: "התקנת מצלמות במעליות",
+            desc: "התקנת מצלמות אבטחה ייעודיות במעליות, עמידות לאורך זמן בעלות כיסוי מלא וחיבור למערכת הניטור המרכזית של הבניין."
         }
     ];
 
@@ -45,8 +55,9 @@ export default function Services() {
 
                 <Box
                     sx={{
-                        display: 'grid',
-                        gridTemplateColumns: { xs: '1fr', md: 'repeat(3, 1fr)' },
+                        display: 'flex',
+                        flexWrap: 'wrap',
+                        justifyContent: 'center',
                         gap: 5
                     }}
                 >
@@ -60,7 +71,7 @@ export default function Services() {
                                 borderRadius: 2,
                                 transition: 'transform 0.3s ease',
                                 borderBottom: '2px solid transparent',
-                                height: '100%',
+                                width: { xs: '100%', sm: 'calc(50% - 20px)', lg: 'calc(33.333% - 27px)' },
                                 '&:hover': {
                                     transform: 'translateY(-10px)',
                                     borderBottomColor: 'primary.main',
